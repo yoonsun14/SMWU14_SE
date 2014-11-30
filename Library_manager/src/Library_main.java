@@ -2,121 +2,90 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
+//íšŒì›ê°€ì… ì¤‘ë³µí™•ì¸
+
 public class Library_main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		Main_methods dao = new Main_methods();
-	//	Student_methods dao2 = new Student_methods();
 		while (true) {
-			System.out.println("1. ÇĞ»ı ·Î±×ÀÎ		2. »ç¼­ ·Î±×ÀÎ		3.È¸¿ø°¡ÀÔ		4.Á¾·á ");
+			System.out.println("1. í•™ìƒ ë¡œê·¸ì¸\n2. ì‚¬ì„œ ë¡œê·¸ì¸\n3. íšŒì›ê°€ì…\n4. ì¢…ë£Œ\në©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			int x = System.in.read() - 48;
 			System.in.read();
 			System.in.read();
 			if (x == 1) {
-				System.out.println(" ÇĞ»ı ·Î±×ÀÎ ÆäÀÌÁö ÀÔ´Ï´Ù.");
+				System.out.println("ë¡œê·¸ì¸ í˜ì´ì§€ ì…ë‹ˆë‹¤. -1 ì…ë ¥ ì‹œ ë©”ë‰´ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.");
 				System.out.print("ID : ");
 				String id = in.readLine();
-				System.out.print("Password : ");
-				String pass = in.readLine();
-				boolean bool = dao.loginMember(id, pass);
-				if (bool){
-					while(true){
-						System.out.println(id + "·Î ·Î±×ÀÎµÇ¾ú½À´Ï´Ù.");
-						System.out.println("1. ´ë¿© Á¤º¸ Á¶È¸		2. µµ¼­ °Ë»ö		3. ·Î±×¾Æ¿ô ");
-						int st_menu = System.in.read() - 48;
-						System.in.read();
-						System.in.read();
-						if (st_menu == 1) {
-							System.out.println(id + "´ÔÀÇ µµ¼­ ´ë¿© Á¤º¸ÀÔ´Ï´Ù.");
-					//		String rent_info = dao2.checkRent(id);
-					/*		System.out.print("ID : ");
-							String id = in.readLine();
-							System.out.print("Password : ");
-							String pass = in.readLine();
-							boolean bool = dao.loginMember(id, pass);
-							if (bool)
-								System.out.println("·Î±×ÀÎ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù~!");
-							else
-								System.out.println("·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");*/
-							System.out.println();
-						} else if (st_menu == 2) {
-							System.out.println("µµ¼­°Ë»ö ÆäÀÌÁö ÀÔ´Ï´Ù.");
-							System.out.print("µµ¼­ Á¦¸ñ(3ÀÚ ÀÌ»ó) : ");
-							String book_sub = in.readLine();
-					/*		boolean bool = dao.loginMember(id, pass);
-							if (bool)
-								System.out.println("·Î±×ÀÎ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù~!");
-							else
-								System.out.println("·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");*/
-							System.out.println();
-						} else if (st_menu == 3) {
-							System.out.println("·Î±×¾Æ¿ôµÇ¾ú½À´Ï´Ù.");
-							break;
-						} else {
-							System.err.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
-						}
+				if(!id.equals("-1")){
+					System.out.print("Password : ");
+					String pass = in.readLine();
+					if(!pass.equals("-1")){
+						boolean bool = dao.loginMember(id, pass);
+						if (bool)
+							System.out.println("ë¡œê·¸ì¸ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤~!");
+						else
+							System.out.println("ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
+						System.out.println("");
 					}
 				}
-				else
-					System.out.println("·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");
-				System.out.println();
 			} else if (x == 2) {
-				System.out.println(" »ç¼­ ·Î±×ÀÎ ÆäÀÌÁö ÀÔ´Ï´Ù.");
+				System.out.println("ë¡œê·¸ì¸ í˜ì´ì§€ ì…ë‹ˆë‹¤. -1 ì…ë ¥ ì‹œ ë©”ë‰´ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.");
 				System.out.print("ID : ");
 				String id = in.readLine();
-				System.out.print("Password : ");
-				String pass = in.readLine();
-				boolean bool = dao.loginMember(id, pass);
-				if (bool){
-					System.out.println("·Î±×ÀÎ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù~!");
-					while(true){
-						System.out.println("administer·Î ·Î±×ÀÎµÇ¾ú½À´Ï´Ù.");
-						System.out.println("1. µµ¼­ Á¤º¸ Ãß°¡		2. µµ¼­ Á¤º¸ ¼öÁ¤		3. µµ¼­ Á¤º¸ »èÁ¦ 		4. ·Î±×¾Æ¿ô ");
-						int st_menu = System.in.read() - 48;
-						System.in.read();
-						System.in.read();
-						if (st_menu == 1) {
-							System.out.println("µµ¼­ Á¤º¸ Ãß°¡ ÆäÀÌÁöÀÔ´Ï´Ù.");
-							//±¸Çö
-							System.out.println();
-						} else if (st_menu == 2) {
-							System.out.println("µµ¼­ Á¤º¸ ¼öÁ¤ ÆäÀÌÁöÀÔ´Ï´Ù.");
-							//±¸Çö
-							System.out.println();
-						} else if (st_menu == 3) {
-							System.out.println("µµ¼­ Á¤º¸ »èÁ¦ ÆäÀÌÁöÀÔ´Ï´Ù.");
-							//±¸Çö
-						} else if (st_menu == 4) {
-							System.out.println("·Î±×¾Æ¿ôµÇ¾ú½À´Ï´Ù.");
-							break;
-						} else {
-							System.err.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
-						}
+				if(!id.equals("-1")){
+					System.out.print("Password : ");
+					String pass = in.readLine();
+					if(!id.equals("-1")){
+						boolean bool = dao.loginMember(id, pass);
+						if (bool)
+							System.out.println("ë¡œê·¸ì¸ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤~!");
+						else
+							System.out.println("ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
+						System.out.println("");
 					}
 				}
-				else
-					System.out.println("·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");
-				System.out.println();
 			} else if (x == 3) {
-				System.out.println("È¸¿ø°¡ÀÔ ÆäÀÌÁö ÀÔ´Ï´Ù.");
+				System.out.println("íšŒì›ê°€ì… í˜ì´ì§€ ì…ë‹ˆë‹¤. -1 ì…ë ¥ ì‹œ ë©”ë‰´ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.");
 				System.out.print("ID: ");
 				String id = in.readLine();
-				System.out.print("Password : ");
-				String pass = in.readLine();
-				System.out.print("name : ");
-				String name = in.readLine();
-				System.out.print("department : ");
-				String department = in.readLine();
-				boolean bool = dao.registerMember(id, pass, name, department);
-				if (bool)
-					System.out.println("È¸¿ø°¡ÀÔ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù~!");
-				else
-					System.out.println("È¸¿ø°¡ÀÔ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù!!");
-				System.out.println();
+				if(!id.equals("-1")){
+					String confirm = "No";
+					do{
+						System.out.print("Password : ");
+						String pass = in.readLine();
+						if(!pass.equals("-1")){ 
+							System.out.print("Password Confirm : ");
+							String passconfirm = in.readLine();
+							if(pass.equals(passconfirm))
+								confirm = "Yes";
+							else
+								System.out.println("* ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+							if(!passconfirm.equals("-1")&&confirm.equals("Yes")){
+								System.out.println("* ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜");
+								System.out.print("name : ");
+								String name = in.readLine();
+								if(!name.equals("-1")){ 
+									System.out.print("department : ");
+									String department = in.readLine();
+									if(!department.equals("-1")){ 
+										boolean bool = dao.registerMember(id, pass, name, department);
+										if (bool)
+											System.out.println("íšŒì›ê°€ì…ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤~!");
+										else
+											System.out.println("íšŒì›ê°€ì…ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤!!");
+										System.out.println("");
+									}
+								}
+							}
+						}
+					}while(confirm.equals("No"));
+				}
 			} else if (x == 4) {
 				System.exit(0);
 			} else {
-				System.err.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+				System.err.println("ì˜ëª» ì…ë ¥!!");
 			}
 		}
 	}
